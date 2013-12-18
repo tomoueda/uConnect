@@ -10,18 +10,13 @@
 #import "CoreLocation/CoreLocation.h"
 #import <FacebookSDK/FacebookSDK.h>
 
-@class Firebase;
+@class UCViewModel;
 @interface UCViewController : UIViewController <CLLocationManagerDelegate>
 
-@property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) NSMutableDictionary *checker;
-@property (strong, nonatomic) NSMutableDictionary *counter;
-@property (nonatomic) BOOL green;
-@property (nonatomic) BOOL yellow;
-@property (nonatomic) BOOL red;
-@property (nonatomic) NSInteger highestmatch;
-@property (nonatomic) NSMutableArray *booleans;
+@property (strong) UCViewModel *viewModel;
+
+
 
 -(IBAction)switchYellow:(UISwitch*)sender;
 -(IBAction)switchRed:(UISwitch*)sender;

@@ -9,7 +9,6 @@
 #import "UCAppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "UCLoginViewController.h"
-#import "UCMatchViewController.h"
 
 @implementation UCAppDelegate
 NSString *const SCSessionStateChangedNotification = @"com.tomoueda.uconnect:SCSessionStateChangedNotification";
@@ -58,14 +57,6 @@ NSString *const SCSessionStateChangedNotification = @"com.tomoueda.uconnect:SCSe
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
--(void)showCommonViewWithMatch:(NSInteger) match idNum:(NSInteger)idNum viewToDisplay:(UCMatchViewController *) matchViewController
-{
-    UIViewController *topViewController = [self.navController topViewController];
-    [matchViewController setNumMatch:match];
-    [matchViewController setIdNum:idNum];
-    [topViewController presentViewController:matchViewController animated:NO completion:nil];
 }
 
 -(void)showLoginView

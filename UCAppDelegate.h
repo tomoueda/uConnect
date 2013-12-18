@@ -18,6 +18,5 @@ extern NSString *const SCSessionStateChangedNotification;
 @property (strong, nonatomic) UCViewController *mainViewController;
 
 -(void)openSession;
--(void)showCommonViewWithMatch:(NSInteger) match idNum:(NSInteger)idNum viewToDisplay: (UCMatchViewController *) matchViewController;
 
 @end
