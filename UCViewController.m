@@ -9,8 +9,6 @@
 #import "UCViewController.h"
 #import "UCAppDelegate.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import <Firebase/Firebase.h>
-#import "UCMatchViewController.h"
 
 
 @interface UCViewController ()
@@ -48,7 +46,6 @@
     self.locationManager.delegate = self;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters;
     self.locationManager.distanceFilter = 50;
-    self.firebase = [[Firebase alloc] initWithUrl:@"https://uconnect.firebaseio.com/"];
     self.checker = [[NSMutableDictionary alloc] init];
     self.counter = [[NSMutableDictionary alloc] init];
     self.highestmatch = 0;
@@ -259,12 +256,6 @@
            NSDictionary<FBGraphUser> *user,
            NSError *error) {
              if (!error) {
-                 [self.firebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
-                     if (![snapshot hasChild:(NSString*)user.id]) {
-                         self.attribute = [self.firebase childByAppendingPath:(NSString*)user.id];
-                         [self.attribute setValue:@{@"name":user.name}];
-                     }
-                 }];
                  CGRect frame = CGRectMake(10, 75 + y * 110, width - 20, 100);
                  UIView *temp = [[UIView alloc] initWithFrame:frame];
                  FBProfilePictureView *myPic = [[FBProfilePictureView alloc]
@@ -437,8 +428,6 @@
 -(void)locationManager:(CLLocationManager *)manager
       didFailWithError:(NSError *)error
 {
-    [self.attribute setValue:@{@"latt":[NSNumber numberWithInteger:-1],
-                               @"long":[NSNumber numberWithInteger:-1]}];
    // NSLog(@"%@ fellow humans", error);
 }
 

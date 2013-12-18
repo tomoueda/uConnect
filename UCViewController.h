@@ -15,8 +15,6 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) UIScrollView *scrollView;
-@property (strong, nonatomic) Firebase *firebase;
-@property (strong, nonatomic) Firebase *attribute;
 @property (strong, nonatomic) NSMutableDictionary *checker;
 @property (strong, nonatomic) NSMutableDictionary *counter;
 @property (nonatomic) BOOL green;
