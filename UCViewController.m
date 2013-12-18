@@ -18,8 +18,6 @@
 @implementation UCViewController
 @synthesize locationManager = _locationManager;
 @synthesize scrollView = _scrollView;
-@synthesize firebase = _firebase;
-@synthesize attribute = _attribute;
 @synthesize checker = _checker;
 @synthesize highestmatch = _highestmatch;
 @synthesize counter = _counter;
